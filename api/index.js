@@ -8,10 +8,14 @@ var cors = require("cors");
 var app = express();
 app.use(cors());
 app.use(express.json());
+//  Configuring express to serve static files from public directory
+app.use(express.static("public"));
+// app.use("/", express.static("./node_modules/bootstrap/dist/"));
 
+// BACKEND ===================================================================
 // Connecting to MongoDB =============================================
-app.listen(3001, () => {
-  console.log("Server is running on port 3001");
+app.listen(3000, () => {
+  console.log("Server is running on port 3000");
 });
 mongoose
   .connect(
@@ -34,11 +38,7 @@ app.post("/api/createPq", async (req, res) => {
   try {
     // console.log("Body: ", req.body);
     // const data = req.body;
-    const data = {
-      pq: "MQ",
-      entityType: "Mosques",
-      issuanceAgency: "Islamic Religious Council of Singapore",
-    };
+    const data = {};
 
     var newPq = new Pq(data);
 
