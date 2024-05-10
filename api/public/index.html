@@ -28,14 +28,13 @@
   <!-- FRONTEND===================================================================== -->
   <!-- UEN Form -->
   <div style="padding: 50px">
-    <form>
+    <form onsubmit="checkUEN(event)">
       <div class="mb-3">
         <label for="inputUEN" class="form-label">UEN</label>
         <input
           type="text"
           class="form-control"
           id="inputUEN"
-          onChange="handleChange(event)"
           aria-describedby="UENHelp"
         />
         <div
@@ -44,9 +43,7 @@
           placeholder="Please input UEN here"
         ></div>
       </div>
-      <button type="submit" class="btn btn-primary" onclick="checkUEN(event)">
-        Submit
-      </button>
+      <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
   <script src="../index.js" defer type="text/babel"></script>
