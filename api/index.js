@@ -4,6 +4,8 @@ const { MongoClient, ServerApiVersion } = require("mongodb");
 const mongoose = require("mongoose");
 const Pq = require("./models/pq.model.js");
 var cors = require("cors");
+const dotenv = require("dotenv");
+dotenv.config();
 
 var app = express();
 app.use(cors());
@@ -18,9 +20,7 @@ app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
 mongoose
-  .connect(
-    "mongodb+srv://admin:Crescent00001@cluster0.z1pulot.mongodb.net/entitiesAbbreviationsDB?retryWrites=true&w=majority&appName=Cluster0"
-  )
+  .connect(process.env.URI)
   .then(() => {
     console.log("Connected to database!");
   })
